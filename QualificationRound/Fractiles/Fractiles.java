@@ -10,14 +10,32 @@ public class Fractiles {
             final int S = in.nextInt();
             final StringBuilder ans = new StringBuilder();
 
-            if (K == 1) {
-                ans.append(1);
-            } else if (S <= K - 1) {
-                ans.append("IMPOSSIBLE");
-            } else {
-                for (int i = 2; i <= K; i++) {
-                    ans.append(i);
-                    ans.append(" ");
+
+             {
+                if(C == 1) {
+                    if(S < K) {
+                        ans.append("IMPOSSIBLE");
+                    } else {
+                        for (int i = 1; i <= K; i++) {
+                            ans.append(i);
+                            ans.append(" ");
+                        }
+                    }
+                } else if (K == 1) {
+                    if(S < K) {
+                        ans.append("IMPOSSIBLE");
+                    } else {
+                        ans.append(1);
+                    }
+                } else {
+                    if(S < K-1) {
+                        ans.append("IMPOSSIBLE");
+                    } else {
+                        for (int i = 2; i <= K; i++) {
+                            ans.append(i);
+                            ans.append(" ");
+                        }
+                    }
                 }
             }
             System.out.printf("Case #%d: %s\n", t, ans.toString());
